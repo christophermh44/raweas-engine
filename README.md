@@ -61,3 +61,10 @@ Note that in the example above, if the rotate function is called after 15:00 of 
 ## run(item[, item, ...])
 
 Function to call at the end of the model.
+
+```
+run(
+	toth,
+	rotate(main, '60:00'),
+	toth
+)
