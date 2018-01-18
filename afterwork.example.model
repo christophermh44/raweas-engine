@@ -1,0 +1,57 @@
+toph = file(2964)
+
+bed_ouverture = file(2973, 40)
+bed_nouveaute = file(2969, 30)
+bed_teaser = file(2971, 20)
+bed_gold1 = file(2966, 30)
+bed_gold2 = file(2967, 30)
+bed_reprise = file(2970, 60)
+bed_meteo = file(2968, 60)
+bed_fermeture = file(2972, 40)
+
+rr = repeat_rule(60, 120)
+
+hits = subcategory(32, rr)
+occasionnels = subcategory(33, rr)
+nouveautes = subcategory(31, rr)
+golds = subcategory(34, rr)
+cuts = subcategory(36)
+
+decro = file(514)
+ads = file(2944, 140)
+raccro = file(515)
+liner = file(2974)
+
+ep = rotation(decro, ads, raccro, liner)
+
+main = rotation(hits, occasionnels, cuts, occasionnels, occasionnels, cuts)
+
+end = event(1031)
+
+run(
+	toph,
+	bed_ouverture,
+	rotate(main, '14:30'),
+	bed_nouveaute,
+	nouveautes,
+	rotate(main, '29:40'),
+	bed_teaser,
+	ep,
+	rotate(main, '44:30'),
+	bed_gold1,
+	golds,
+	rotate(main, '60:00'),
+	bed_reprise,
+	rotate(main, '74:00'),
+	bed_meteo,
+	nouveautes,
+	rotate(main, '89:40'),
+	bed_teaser,
+	ep,
+	rotate(main, '104:30'),
+	bed_gold2,
+	golds,
+	rotate(main, '119:20'),
+	bed_fermeture,
+	end
+)

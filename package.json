@@ -1,0 +1,14 @@
+{
+  "name": "raweas-engine",
+  "version": "0.0.1",
+  "description": "M3U Generator with RadioDJ as backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Christopher Machicoane-Hurtaud <christophermh44@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sync-mysql": "^3.0.1"
+  }
+}
