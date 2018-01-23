@@ -19,7 +19,7 @@ class M3ULine {
 		return [
 			'#EXTINF:' + this.duration + ',' + this.artist + ' - ' + this.title,
 			this.path,
-			'#RDJDATA:' + this.ID + (this.isEvent ? '' : ':' + [this.cue_sta, this.cue_int - this.cue_sta, this.cue_xta, this.cue_end, this.cue_fin, this.cue_fou, 0, -100, 0, -100].join(':'))
+			'#RDJDATA:' + this.ID + (this.isEvent ? '' : ':' + [this.cue_sta, Math.max(0, this.cue_int - this.cue_sta), this.cue_xta, this.cue_end, this.cue_fin, this.cue_fou, 0, -100, 0, -100].join(':'))
 		];
 	}
 

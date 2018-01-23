@@ -1,11 +1,11 @@
-const db = require('./database.js');
-const execute = require('./execute.js');
-const M3ULine = require('./M3ULine.js');
-const RandomLines = require('./RandomLines.js');
-const Group = require('./Group.js');
-const Rotation = require('./Rotation.js');
-const RepeatRule = require('./RepeatRule.js');
-const Show = require('./Show.js');
+const db = require('./db/database');
+const execute = require('./execute');
+const M3ULine = require('./classes/M3ULine');
+const RandomLines = require('./classes/RandomLines');
+const Group = require('./classes/Group');
+const Rotation = require('./classes/Rotation');
+const RepeatRule = require('./classes/RepeatRule');
+const Show = require('./classes/Show');
 
 module.exports = {
 	file: function(id, forceDuration) {
@@ -70,11 +70,12 @@ module.exports = {
 		r.seconds = parseInt(minutes) * 60 + parseInt(seconds);
 		return r;
 	},
+	outputFile: null,
 	run: function() {
 		var show = new Show;
 		Array.from(arguments).forEach(item => {
 			show.items.push(item);
 		});
-		execute(show);
+		execute(show, this.outputFile);
 	}
 };

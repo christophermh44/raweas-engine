@@ -1,10 +1,11 @@
-const M3ULine = require('./M3ULine');
-const RandomLines = require('./RandomLines.js');
-const Group = require('./Group.js');
-const Rotation = require('./Rotation.js');
-const RepeatRule = require('./RepeatRule.js');
-const Show = require('./Show.js');
-const History = require('./History.js');
+const fs = require('fs');
+const M3ULine = require('./classes/M3ULine');
+const RandomLines = require('./classes/RandomLines');
+const Group = require('./classes/Group');
+const Rotation = require('./classes/Rotation');
+const RepeatRule = require('./classes/RepeatRule');
+const Show = require('./classes/Show');
+const History = require('./classes/History');
 
 var m3u = [];
 var duration = 0;
@@ -18,7 +19,7 @@ function addItem(item) {
 	}
 }
 
-module.exports = function(show) {
+module.exports = function(show, outputFile) {
 	m3u.push('#EXTM3U');
 	show.items.forEach(item => {
 		switch (true) {
@@ -55,5 +56,9 @@ module.exports = function(show) {
 			break;
 		}
 	});
-	console.log(m3u.join("\n"));
+	if (outputFile == null) {
+		console.log(m3u.join("\n"));
+	} else {
+		fs.writeFileSync(outputFile, m3u.join("\n"));
+	}
 };
