@@ -102,10 +102,10 @@ Main structure (array of ads objects):
 	…
 ]
 ```
-* *ID - * The ID of the RadioDJ song
-* *type - * the campaign of the ad (will be referenced in the screens file, see below)
-* *mon, tue, wed, … - * time slot for each day of week. First item for the start and second one for the end of the slot
-* *always - * boolean that will indicate if the ad can be selected at any time. Time slots will be ignored if set to true. Default to false.
+- *ID - * The ID of the RadioDJ song
+- *type - * the campaign of the ad (will be referenced in the screens file, see below)
+- *mon, tue, wed, … - * time slot for each day of week. First item for the start and second one for the end of the slot
+- *always - * boolean that will indicate if the ad can be selected at any time. Time slots will be ignored if set to true. Default to false.
 
 ## commercials/screens.json
 
@@ -120,7 +120,7 @@ Main structure of a screen object:
 }
 ```
 
-* *time - * The screen theorical time (hh:mm 24h format)
-* *campaigns - * Array of ads types.
+- *time - * The screen theorical time (hh:mm 24h format)
+- *campaigns - * Array of ads types.
 
 The example above will produce an ad screen at hh:mm containing an ad from the "yyy" category, then an ad from the "zzz" category, etc.
